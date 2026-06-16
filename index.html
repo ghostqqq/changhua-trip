@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>彰化親子三日遊｜地圖時間版</title>
+<style>
+:root{
+  --navy:#17324d;--teal:#1f8a8a;--orange:#f4a261;--bg:#f3f6f8;
+  --card:#fff;--text:#23303d;--muted:#6b7b8c;--line:#dce5ed;
+  --shadow:0 16px 42px rgba(23,50,77,.10);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",Arial,sans-serif;background:linear-gradient(180deg,#f8fbfc,#eef3f6);color:var(--text);line-height:1.65}
+.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+.hero{background:linear-gradient(135deg,#17324d,#1f8a8a);color:#fff;padding:48px 0 34px}
+.hero h1{font-size:44px;margin:0 0 10px;letter-spacing:.04em}
+.hero p{margin:0;opacity:.92;font-size:18px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.badges span{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);padding:7px 12px;border-radius:999px;font-size:13px}
+main{padding:28px 0 50px}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.nav a{text-decoration:none;background:white;border-radius:16px;padding:14px 16px;box-shadow:var(--shadow);color:var(--navy);font-weight:900}
+.card{background:var(--card);border-radius:24px;box-shadow:var(--shadow);border:1px solid #edf1f4;margin:24px 0;overflow:hidden}
+.card-head{padding:22px 26px;background:linear-gradient(90deg,#fff,#f0faf8);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:center}
+.card-head h2{margin:0;color:var(--navy);font-size:26px}
+.tag{background:var(--navy);color:#fff;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:800;white-space:nowrap}
+.card-body{padding:24px 26px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
+.route-box{background:#f8fbfc;border:1px dashed #bfd0dc;border-radius:16px;padding:13px 16px;font-weight:900;color:#33485b;margin-bottom:18px}
+.timeline{border-left:3px solid var(--line);padding-left:24px;margin-left:8px}
+.stop{position:relative;padding-bottom:22px}
+.stop:last-child{padding-bottom:0}
+.stop:before{content:"";position:absolute;left:-34px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:4px solid #fff;box-shadow:0 0 0 2px var(--orange)}
+.stop-main{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:start}
+.time{font-weight:950;color:var(--teal)}
+.place{font-size:18px;font-weight:950;color:#1f2d3a}
+.meta{margin:6px 0 0;color:var(--muted);font-size:14px}
+.drive{display:inline-block;margin-top:7px;background:#eef6f6;color:#176b6b;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:800}
+.map-card{background:#fff7e8;border:1px solid #f5dfbd;border-radius:20px;padding:16px}
+.map-card h3{margin:0 0 10px;color:var(--navy)}
+.map-frame{width:100%;height:320px;border:0;border-radius:16px;background:#ddd}
+.map-links{display:grid;gap:8px;margin-top:12px}
+.map-links a{text-decoration:none;background:#fff;border:1px solid #f0dcc0;border-radius:12px;padding:9px 12px;color:#33485b;font-weight:800;font-size:14px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f1f6f8;color:var(--navy);font-size:14px}
+td{font-size:14px}
+.note{background:linear-gradient(90deg,#17324d,#1f8a8a);color:white;border-radius:20px;padding:18px 20px;margin-top:20px}
+.note h3{margin:0 0 6px}
+.note p{margin:0;opacity:.92}
+@media(max-width:900px){.grid,.nav{grid-template-columns:1fr}.card-head{flex-direction:column;align-items:flex-start}.stop-main{grid-template-columns:1fr}.hero h1{font-size:34px}}
+@media print{body{background:#fff}.hero{background:#17324d}.nav{display:none}.card{box-shadow:none;break-inside:avoid}.grid{grid-template-columns:1fr}.map-frame{height:220px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>彰化親子三日遊｜地圖時間版</h1>
+    <p>桃園出發・三天兩夜・含抵達時間、停留時間、離開時間與路途預估</p>
+    <div class="badges">
+      <span>🚗 路線動線優化</span><span>🕘 時間標記</span><span>🗺️ 地圖導航</span><span>👨‍👩‍👧 親子友善</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<nav class="nav">
+  <a href="#day1">Day 1｜糖廠花園</a>
+  <a href="#day2">Day 2｜恐龍花市</a>
+  <a href="#day3">Day 3｜鹿港芳苑</a>
+  <a href="#summary">時間總表</a>
+</nav>
+
+<section id="day1" class="card">
+  <div class="card-head"><h2>Day 1｜7/30（四）桃園 → 彰化</h2><div class="tag">建議：先玩再吃午餐</div></div>
+  <div class="card-body grid">
+    <div>
+      <div class="route-box">桃園 → 溪湖糖廠 → 別有洞天水管咖啡廳 → 田尾公路花園 → 馥裕花園酒店</div>
+      <div class="timeline">
+        <div class="stop"><div class="stop-main"><div class="time">08:30 離開</div><div><div class="place">桃園出發</div><p class="meta">預計路程：約 2 小時。若國道順暢可提早抵達；暑假與用餐時段建議保留緩衝。</p><span class="drive">🚗 前往溪湖糖廠：約 110–130 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">10:30 到達<br>12:00 離開</div><div><div class="place">溪湖糖廠</div><p class="meta">停留：約 1.5 小時。五分車、冰品、園區散步，先讓小朋友活動一下。</p><span class="drive">🚗 前往別有洞天：約 20–25 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">12:25 到達<br>13:35 離開</div><div><div class="place">別有洞天水管咖啡廳</div><p class="meta">停留：約 1 小時 10 分。作為午餐點時間剛好，也能拍照休息。</p><span class="drive">🚗 前往田尾：約 20–25 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">14:00 到達<br>17:00 離開</div><div><div class="place">田尾公路花園</div><p class="meta">停留：約 3 小時。花卉、多肉植物、親子腳踏車，下午慢慢逛最舒服。</p><span class="drive">🚗 前往飯店：約 15–20 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">17:20 到達</div><div><div class="place">馥裕花園酒店</div><p class="meta">入住休息。第一天不要壓太晚，隔天才有電；不然爸媽會比手機先沒電。</p></div></div></div>
+      </div>
+    </div>
+    <aside class="map-card">
+      <h3>Day 1 地圖</h3>
+      <iframe class="map-frame" src="https://www.google.com/maps?q=溪湖糖廠%20別有洞天水管咖啡廳%20田尾公路花園%20馥裕花園酒店&output=embed"></iframe>
+      <div class="map-links">
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=桃園&destination=溪湖糖廠">桃園 → 溪湖糖廠</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=溪湖糖廠&destination=別有洞天水管咖啡廳">溪湖糖廠 → 別有洞天</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=別有洞天水管咖啡廳&destination=田尾公路花園">別有洞天 → 田尾</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=田尾公路花園&destination=馥裕花園酒店">田尾 → 飯店</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="day2" class="card">
+  <div class="card-head"><h2>Day 2｜7/31（五）恐龍 × 花市 × 夜景</h2><div class="tag">親子放電日</div></div>
+  <div class="card-body grid">
+    <div>
+      <div class="route-box">飯店 → 古生物奇幻樂園 → 午餐 → 埔茂花市 → 轉角秘密基地 → 飯店</div>
+      <div class="timeline">
+        <div class="stop"><div class="stop-main"><div class="time">09:20 離開<br>10:00 到達</div><div><div class="place">古生物奇幻樂園</div><p class="meta">路程：約 30–40 分；停留：約 3 小時。建議開園就進場。</p><span class="drive">🚗 前往午餐／埔茂：約 15–25 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">13:00 離開<br>14:00 到達</div><div><div class="place">午餐與埔茂花市</div><p class="meta">午餐約 1 小時；埔茂花市停留：約 3 小時。沙坑、戲水池、動物區，替換衣物很重要。</p><span class="drive">🚗 前往轉角秘密基地：約 25–35 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">17:00 到達<br>20:00 離開</div><div><div class="place">轉角秘密基地</div><p class="meta">停留：約 3 小時。晚餐、泡腳、看夜景；採現場候位，早到比較安心。</p><span class="drive">🚗 返回飯店：約 25–35 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">20:30 到達</div><div><div class="place">馥裕花園酒店</div><p class="meta">回飯店休息，第二天活動量高，不建議再加景點。</p></div></div></div>
+      </div>
+    </div>
+    <aside class="map-card">
+      <h3>Day 2 地圖</h3>
+      <iframe class="map-frame" src="https://www.google.com/maps?q=古生物奇幻樂園%20埔茂花市%20轉角秘密基地%20馥裕花園酒店&output=embed"></iframe>
+      <div class="map-links">
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=馥裕花園酒店&destination=古生物奇幻樂園">飯店 → 古生物奇幻樂園</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=古生物奇幻樂園&destination=埔茂花市">古生物 → 埔茂花市</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=埔茂花市&destination=轉角秘密基地">埔茂 → 轉角秘密基地</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=轉角秘密基地&destination=馥裕花園酒店">轉角 → 飯店</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="day3" class="card">
+  <div class="card-head"><h2>Day 3｜8/1（六）鹿港老街 × 芳苑海牛採蚵</h2><div class="tag">潮汐為準</div></div>
+  <div class="card-body grid">
+    <div>
+      <div class="route-box">飯店退房 → 鹿港老街 → 午餐 → 芳苑海牛採蚵 → 回程</div>
+      <div class="timeline">
+        <div class="stop"><div class="stop-main"><div class="time">08:20 離開<br>09:00 到達</div><div><div class="place">鹿港老街</div><p class="meta">路程：約 35–45 分；停留：約 4 小時。大元麻糬、榮佳益智積木、簡單美味工坊、桂花巷藝術村。</p><span class="drive">🚗 鹿港 → 芳苑：約 35–45 分</span></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">13:00 午餐<br>14:00 離開</div><div><div class="place">鹿港午餐後前往芳苑</div><p class="meta">建議先吃飽再去海邊，潮間帶活動比較不會趕。</p></div></div></div>
+        <div class="stop"><div class="stop-main"><div class="time">14:45 到達<br>依業者時間</div><div><div class="place">芳苑海牛採蚵生態旅遊</div><p class="meta">停留：約 1.5–2.5 小時。實際集合與出發時間需依潮汐及業者通知調整。</p><span class="drive">🚗 芳苑 → 桃園：約 2.5–3 小時以上</span></div></div></div>
+      </div>
+    </div>
+    <aside class="map-card">
+      <h3>Day 3 地圖</h3>
+      <iframe class="map-frame" src="https://www.google.com/maps?q=鹿港老街%20芳苑海牛採蚵生態旅遊&output=embed"></iframe>
+      <div class="map-links">
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=馥裕花園酒店&destination=鹿港老街">飯店 → 鹿港老街</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=鹿港老街&destination=芳苑海牛採蚵生態旅遊">鹿港 → 芳苑海牛採蚵</a>
+        <a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=芳苑海牛採蚵生態旅遊&destination=桃園">芳苑 → 桃園</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="summary" class="card">
+  <div class="card-head"><h2>時間總表</h2><div class="tag">到達・停留・離開・路程</div></div>
+  <div class="card-body table-wrap">
+    <table>
+      <thead><tr><th>日期</th><th>地點</th><th>到達</th><th>停留時間</th><th>離開</th><th>下一段路程預估</th></tr></thead>
+      <tbody>
+        <tr><td>7/30</td><td>桃園</td><td>-</td><td>-</td><td>08:30</td><td>至溪湖糖廠 110–130 分</td></tr>
+        <tr><td>7/30</td><td>溪湖糖廠</td><td>10:30</td><td>1.5 小時</td><td>12:00</td><td>至別有洞天 20–25 分</td></tr>
+        <tr><td>7/30</td><td>別有洞天水管咖啡廳</td><td>12:25</td><td>1 小時 10 分</td><td>13:35</td><td>至田尾 20–25 分</td></tr>
+        <tr><td>7/30</td><td>田尾公路花園</td><td>14:00</td><td>3 小時</td><td>17:00</td><td>至飯店 15–20 分</td></tr>
+        <tr><td>7/31</td><td>古生物奇幻樂園</td><td>10:00</td><td>3 小時</td><td>13:00</td><td>至埔茂 15–25 分</td></tr>
+        <tr><td>7/31</td><td>埔茂花市</td><td>14:00</td><td>3 小時</td><td>17:00</td><td>至轉角秘密基地 25–35 分</td></tr>
+        <tr><td>7/31</td><td>轉角秘密基地</td><td>17:00</td><td>3 小時</td><td>20:00</td><td>至飯店 25–35 分</td></tr>
+        <tr><td>8/1</td><td>鹿港老街</td><td>09:00</td><td>4 小時</td><td>13:00</td><td>至芳苑 35–45 分</td></tr>
+        <tr><td>8/1</td><td>芳苑海牛採蚵</td><td>14:45</td><td>1.5–2.5 小時</td><td>依潮汐</td><td>回桃園 2.5–3 小時以上</td></tr>
+      </tbody>
+    </table>
+    <div class="note"><h3>提醒</h3><p>路程時間為行程規劃用預估值；實際請以當天 Google Maps 即時路況與芳苑潮汐集合時間為準。</p></div>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
